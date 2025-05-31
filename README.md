@@ -44,7 +44,7 @@ dotnet build
 dotnet run --project TaskManagement.API
 ```
 
-Open Swagger UI at: `https://localhost:5230/swagger`
+Open Swagger UI at: `https://localhost:7093/swagger`
 
 ### Run tests
 
