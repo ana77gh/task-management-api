@@ -315,7 +315,10 @@ namespace TaskManagement.Tests
             //Act
             var result = _taskService.GetTaskByUser(userId);
 
-            result.Should().NotBeEmpty();
+            //Assert
+            result.Should().HaveCount(2);
+            result.All(t => t.AssignedUserId == userId).Should().BeTrue();
+
 
         }
     }
