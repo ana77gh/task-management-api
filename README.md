@@ -1,7 +1,7 @@
 
 # Task Management System
 
-A clean-architecture based Task Management API built with .NET 8 as a take-home test assignment.
+A clean-architecture based Task Management API built with .NET 8.
 
 ## ✅ Features
 
