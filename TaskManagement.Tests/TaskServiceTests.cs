@@ -3,28 +3,25 @@ using Moq;
 using FluentAssertions;
 using TaskManagement.Application.Interfaces;
 using TaskManagement.Application.Services;
-using TaskManagement.Infrastructure.Repositories;
 using TaskManagement.Domain.Entities;
 using TaskManagement.Application.Exceptions;
 using TaskManagement.Domain.Enums;
 using TaskManagement.Application.DTOs;
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using System;
-using Microsoft.Extensions.Logging;
+
 
 namespace TaskManagement.Tests
 {
     public class TaskServiceTests
     {
         private readonly Mock<ITaskRepository> _taskRepositoryMock;
-        private readonly Mock<ILogger<TaskService>> _loggerMock;
+        private readonly Mock<ILoggingService<TaskService>> _loggerMock;
         private readonly TaskService _taskService;
 
         public TaskServiceTests()
         {
             _taskRepositoryMock = new Mock<ITaskRepository>();
-            _loggerMock = new Mock<ILogger<TaskService>>();
+            _loggerMock = new Mock<ILoggingService<TaskService>>();
             _taskService = new TaskService(_taskRepositoryMock.Object, _loggerMock.Object);
         }
 

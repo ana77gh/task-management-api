@@ -167,6 +167,13 @@ namespace TaskManagement.Infrastructure.Repositories
 
         public TaskEntity Add(TaskEntity task)
         {
+            var tasks = _tasks.Where(t => t.Title == task.Title).FirstOrDefault();
+
+            if (task != null)
+            {
+                throw new Exception("Task with this title already exist");
+            }
+
             task.Id = _nextId++;
             _tasks.Add(task);
             return task;

@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddSingleton<ITaskRepository, TaskRepository>(); //ganti AddScoped kalau nanti ga pakai in-memory
+builder.Services.AddScoped(typeof(ILoggingService<>), typeof(LoggingService<>));
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

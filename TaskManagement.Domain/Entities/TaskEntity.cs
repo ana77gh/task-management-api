@@ -16,5 +16,6 @@ namespace TaskManagement.Domain.Entities
         public Priority Priority { get; set; }
         public Status Status { get; set; }
         public int? AssignedUserId { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

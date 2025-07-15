@@ -17,9 +17,9 @@ namespace TaskManagement.Application.Services
     public class TaskService : ITaskService
     {
         private readonly ITaskRepository _taskRepository;
-        private readonly ILogger<TaskService> _logger;
+        private readonly ILoggingService<TaskService> _logger;
 
-        public TaskService(ITaskRepository taskRepository, ILogger<TaskService> logger)
+        public TaskService(ITaskRepository taskRepository, ILoggingService<TaskService> logger)
         {
             _taskRepository = taskRepository;
             _logger = logger;
@@ -104,7 +104,7 @@ namespace TaskManagement.Application.Services
             {
                 _logger.LogWarning("Create failed: due date must not be in the past");
                 throw new ValidationException("Due date tidak boleh di masa lalu.");
-            }               
+            } 
 
             var newTask = new TaskEntity
             {
